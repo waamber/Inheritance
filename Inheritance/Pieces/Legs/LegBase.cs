@@ -14,7 +14,7 @@ namespace Inheritance.Pieces.Legs
 
         public virtual void Walk(int numberOfSteps) // virtural allows other classes to override Walk()
         {
-            Console.WriteLine($"The {Size} legs took {numberOfSteps} steps.");
+            Console.WriteLine($"The {Size} legs is wearing {GetType().Name} and took {numberOfSteps} steps."); // GetType().Name gives you the actual type
         }
     }
 }
