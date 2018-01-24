@@ -55,7 +55,7 @@ namespace Inheritance
                 Length = Length.StreetCorner
             };
 
-            var movers = new List<IMove>
+            var movers = new List<IMoveable>
             {
                 shorts,
                 skirt,
@@ -71,7 +71,6 @@ namespace Inheritance
                 mover.Jump(10);
                 mover.Run(5);
 
-
                 //if (leg is Skirt s) // casting (pattern matching)
                 //{
                 //    s.Material = "denim";
@@ -85,7 +84,12 @@ namespace Inheritance
                     case Jeans j:
                         Console.WriteLine($"It's {j.Color} jeans.");
                         break;
+                    case IMoveable m:
+                        m.Run(10);
+                        break;
                 }
+
+                Console.WriteLine($"The {mover.GetType().Name} moved {mover.HowFarIMoved} steps.");
 
             }
 
