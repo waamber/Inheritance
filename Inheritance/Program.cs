@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Inheritance.Pieces.Legs;
-
 
 namespace Inheritance
 {
@@ -59,7 +55,7 @@ namespace Inheritance
                 Length = Length.StreetCorner
             };
 
-            var legs = new List<LegBase>
+            var movers = new List<IMove>
             {
                 shorts,
                 skirt,
@@ -69,11 +65,30 @@ namespace Inheritance
                 skirt2
             };
 
-            foreach (var leg in legs) //leg is LegBase
+            foreach (var mover in movers) //leg is LegBase
             {
-                leg.Walk(10);
+                mover.Walk(10);
+                mover.Jump(10);
+                mover.Run(5);
+
+
+                //if (leg is Skirt s) // casting (pattern matching)
+                //{
+                //    s.Material = "denim";
+                //}
+
+                switch (mover) //if leg is Skirt- Skirt is converted to s
+                {
+                    case Skirt s:
+                        Console.WriteLine($"It's a skirt made of {s.Material}.");
+                        break;
+                    case Jeans j:
+                        Console.WriteLine($"It's {j.Color} jeans.");
+                        break;
+                }
+
             }
-       
+
             Console.ReadLine();
 
         }
