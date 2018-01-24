@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Inheritance.Pieces.Legs
 {
-    class Skirt : LegBase
+    class Skirt : LegBase, IMove
     {
         public string Material { get; set; }
         public Length  Length { get; set; }
@@ -14,6 +14,11 @@ namespace Inheritance.Pieces.Legs
         public override void Jump(int howHigh)
         {
             Console.WriteLine($"Skirt jumped {howHigh} inches.");
+        }
+
+        public void Run(int howFar)
+        {
+            Console.WriteLine($"Skirt ran {howFar} miles.");
         }
 
         public override void Walk(int numberOfSteps) //overrides Walk() in LegBase
