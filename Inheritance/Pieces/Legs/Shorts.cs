@@ -10,6 +10,11 @@ namespace Inheritance.Pieces.Legs
     {
         public string Material { get; set; }
         public Length Length { get; set; }
+
+        public override void Jump(int howHigh)
+        {
+            Console.WriteLine($"Shorts jumped {howHigh} feet in the air.");
+        }
     }
 
 

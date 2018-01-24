@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Inheritance.Pieces.Legs;
-
 
 namespace Inheritance
 {
@@ -72,8 +68,25 @@ namespace Inheritance
             foreach (var leg in legs) //leg is LegBase
             {
                 leg.Walk(10);
+                leg.Jump(10);
+
+                //if (leg is Skirt s) // casting (pattern matching)
+                //{
+                //    s.Material = "denim";
+                //}
+
+                switch (leg) //if leg is Skirt- Skirt is converted to s
+                {
+                    case Skirt s:
+                        Console.WriteLine($"It's a skirt made of {s.Material}.");
+                        break;
+                    case Jeans j:
+                        Console.WriteLine($"It's {j.Color} jeans.");
+                        break;
+                }
+
             }
-       
+
             Console.ReadLine();
 
         }

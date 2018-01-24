@@ -11,6 +11,11 @@ namespace Inheritance.Pieces.Legs
         public string Material { get; set; }
         public Length  Length { get; set; }
 
+        public override void Jump(int howHigh)
+        {
+            Console.WriteLine($"Skirt jumped {howHigh} inches.");
+        }
+
         public override void Walk(int numberOfSteps) //overrides Walk() in LegBase
         {
             if (Length == Length.StreetCorner)
@@ -18,6 +23,7 @@ namespace Inheritance.Pieces.Legs
                 Console.WriteLine($"The {Size} legs walked {numberOfSteps} steps suggestively and knocked on your window.");
                 return;
             }
+
             base.Walk(numberOfSteps); // base is what you're inheriting from in LegBase
         }
     }
